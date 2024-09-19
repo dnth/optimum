@@ -301,13 +301,13 @@ class BLIP2OPTAttention(nn.Module):
 
     def forward(
         self,
-        hidden_states: torch.Tensor,
-        key_value_states: Optional[torch.Tensor] = None,
-        past_key_value: Optional[Tuple[torch.Tensor]] = None,
-        attention_mask: Optional[torch.Tensor] = None,
-        layer_head_mask: Optional[torch.Tensor] = None,
-        output_attentions: bool = False,
-    ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
+        hidden_states,
+        key_value_states = None,
+        past_key_value = None,
+        attention_mask = None,
+        layer_head_mask = None,
+        output_attentions = False,
+    ):
         """Input shape: Batch x Time x Channel"""
 
         # if key_value_states are provided this layer is used as a cross-attention layer
