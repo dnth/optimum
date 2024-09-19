@@ -151,6 +151,20 @@ class BetterTransformerManager:
         "t5",
     }
 
+    
+    @staticmethod
+    def get_model_type(model_config: "PretrainedConfig") -> str:
+        """
+        Returns the model_type attribute out of a (potentially nested) configuration object.
+
+        Args:
+            model_config (`PretrainedConfig`):
+                The configuration object to get the model type from.
+        """
+        if model_config.model_type == "blip-2":
+            return model_config.text_config.model_type
+        return model_config.model_type
+
     @staticmethod
     def cannot_support(model_type: str) -> bool:
         """
